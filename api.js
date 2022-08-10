@@ -57,4 +57,4 @@ app.delete('/murid/:id', (req, res) =>{
             res.send(err.message)
         }
     })
-});
+});   
