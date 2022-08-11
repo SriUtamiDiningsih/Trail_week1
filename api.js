@@ -21,7 +21,7 @@ client.connect(err => {
 app.get('/murid', (req, res) =>{
     client.query(`Select * from students`, (err, result) =>{
         if(!err){
-            res.send(result)
+            res.send(result.rows)
         }
     })
 });
@@ -57,4 +57,13 @@ app.delete('/murid/:id', (req, res) =>{
             res.send(err.message)
         }
     })
-});   
+});
+
+app.get('/murid/:id', (req, res) =>{
+    client.query((`select * from students where student_id= ${req.params.id}`), (err, result) =>{
+        if(!err)
+        {
+            res.send(result.rows)
+        }
+    })
+});
